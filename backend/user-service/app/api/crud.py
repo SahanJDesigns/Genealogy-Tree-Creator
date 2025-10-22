@@ -32,12 +32,12 @@ _client = None
 def get_client():
     global _client
     if not _client:
-        _client = AsyncIOMotorClient(settings.MONGO_URI)
+        _client = AsyncIOMotorClient(settings.MY_MONGO_URI)
     return _client
 
 
 def users_collection():
-    return get_client()[settings.MONGO_DB].users
+    return get_client()[settings.MY_MONGO_DB].users
 
 
 async def get_user_by_email(email: str):
